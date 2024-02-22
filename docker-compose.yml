@@ -1,0 +1,13 @@
+version: '3.7'
+
+  mongo:
+    image: mongo
+    container_name: rm-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASS}
+    user: "1000:1000"
+    ports: 
+      - "27017:27017"
+    volumes:
+      - ${DATA_PATH}:/data/db
